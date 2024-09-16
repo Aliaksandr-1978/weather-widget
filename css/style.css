@@ -7,7 +7,7 @@ html {
 *::after {
   box-sizing: inherit;
   transition-timing-function: ease, step-start,
-    cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    cubic-bezier(0.6, -0.28, 0.735, 0.045); /*Функция изменения скорости анимации */
 }
 
 a {
@@ -41,17 +41,20 @@ body {
   padding: 0 10px;
   height: 100vh;
   gap: 20px;
-  background-color: bisque;
+  transition: grid-template-rows 0.4s;
+}
+
+.app__container_top {
+  grid-template-rows: 84px auto;
 }
 
 .app__container-top {
   position: relative;
-  background-color: rgb(211, 255, 196);
+
   align-self: flex-end;
 }
 
 .app__container-bottom {
-  background-color: rgb(196, 213, 255);
 }
 
 .location-form__input {
@@ -140,12 +143,12 @@ body {
   transition: box-shadow 0.4s, 0.4s width, height 0.4s, animation 0.4s,
     background-color 0.4s, backdrop-filter 0.4s, color 0.4s;
   will-change: width, height, transform, filter, backdrop-filter;
-  /* width: 0;
-  height: 0; */
+  width: 0;
+  height: 0;
   overflow: hidden;
   margin: 0 auto;
   margin-bottom: 20px;
-  /* transform: scale(0); */
+  transform: scale(0);
 }
 
 .card__inner {
@@ -153,9 +156,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
-  /* opacity: 0; */
+  opacity: 0;
   transition: opacity 0.4s, transform 0.4s;
-  /* transform: scale(0); */
+  transform: scale(0);
   will-change: opacity, transform;
   height: 100%;
 }
@@ -242,4 +245,99 @@ body {
 
 .card-param-text_footer {
   font-size: 24px;
+}
+
+/* Загружается */
+.card.loading {
+  width: 30px;
+  height: 30px;
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.card.full {
+  width: 100%;
+  height: 170px;
+  animation: none;
+  transform: scale(1);
+}
+
+.card.full .card__inner {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card.full .card__footer {
+  opacity: 0.6;
+}
+
+/* Стандартная */
+.card.glass {
+  /* From https://css.glass */
+  background-color: rgba(102, 102, 102, 0.25);
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+  backdrop-filter: blur(8px);
+  /* border: 1px solid rgba(255, 255, 255, 0.4); */
+  color: white;
+  height: 80px;
+  width: 100%;
+}
+
+.card.glass .card-param-icon {
+  fill: white;
+}
+
+.card.glass .card__inner {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card.glass .card__title {
+  transform: none;
+}
+
+.card.glass .card__desc {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card.glass .card__icon {
+  width: 42px;
+  height: 42px;
+  filter: grayscale(1);
+}
+
+.card.glass:hover {
+  height: 170px;
+  background-color: rgba(33, 33, 33, 0.3);
+}
+
+.card.glass:hover .card__title {
+  transform: translateY(-12px);
+}
+
+.card.glass:hover .card__icon {
+  width: 80px;
+  height: 80px;
+}
+
+.card.glass:hover .card__desc {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card.glass:hover .card__footer {
+  opacity: 0.6;
 }
