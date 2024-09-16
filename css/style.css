@@ -134,3 +134,112 @@ body {
 }
 
 /* Карточки */
+.card {
+  background-color: white;
+  border-radius: 28px;
+  transition: box-shadow 0.4s, 0.4s width, height 0.4s, animation 0.4s,
+    background-color 0.4s, backdrop-filter 0.4s, color 0.4s;
+  will-change: width, height, transform, filter, backdrop-filter;
+  /* width: 0;
+  height: 0; */
+  overflow: hidden;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  /* transform: scale(0); */
+}
+
+.card__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  /* opacity: 0; */
+  transition: opacity 0.4s, transform 0.4s;
+  /* transform: scale(0); */
+  will-change: opacity, transform;
+  height: 100%;
+}
+
+.card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.card__head-left {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.card__icon {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background-size: 120%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url();
+  background-color: aqua;
+  transition: width 0.4s, height 0.4s, background-image 0.4s;
+  will-change: width, height, background-image;
+}
+
+.card__title {
+  font-size: 28px;
+  margin: 0;
+  max-width: 280px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: transform 0.4s;
+  transform: translateY(-12px);
+  will-change: transform;
+}
+
+.card__desc {
+  position: absolute;
+  display: block;
+  opacity: 0.6;
+  transform: translateY(-10px);
+  will-change: opacity;
+  transform: opacity 0.4s, visibility 0.2s;
+}
+
+.card-param {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-param-icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  transition: fill 0.4s;
+}
+
+.card-param-text {
+  font-size: 24px;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+  transition: opacity 0.4s;
+  will-change: opacity;
+  overflow: hidden;
+  /* opacity: 0; */
+}
+
+.card-param-icon__footer {
+  width: 26px;
+  height: 26px;
+}
+
+.card-param-text_footer {
+  font-size: 24px;
+}
